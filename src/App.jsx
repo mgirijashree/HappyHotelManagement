@@ -1,28 +1,52 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AuthProvider } from './assets/auth/AuthContext';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// Layouts and Components
-import AdminLayout from './components/AdminLayout';
+import { AuthProvider } from "./assets/auth/AuthContext";
 
-// Pages
-import AdminDashboard from './pages/Admin/AdminDashboard';
-import CreateUser from './pages/Admin/CreateUser';
+import Login from "./pages/Auth/Login";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import ProtectedRoute from "./assets/auth/ProtectedRoute";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+
         <Routes>
-          {/* Admin Routes wrapped in AdminLayout */}
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<AdminDashboard />} />
-            <Route path="users/create" element={<CreateUser />} />
+
+          {/* OPEN APP */}
+          <Route
+            path="/"
+            element={<Navigate to="/login" replace />}
+          />
+
+          {/* LOGIN */}
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+
+          {/* ADMIN */}
+          <Route
+            element={
+              <ProtectedRoute
+                allowedRoles={["admin"]}
+              />
+            }
+          >
+            <Route
+              path="/admin"
+              element={<AdminDashboard />}
+            />
           </Route>
 
-          {/* Add other routes here (e.g., /login) */}
-          <Route path="/login" element={<div>Login Page</div>} />
+          {/* FALLBACK */}
+          <Route
+            path="*"
+            element={<Navigate to="/login" replace />}
+          />
+
         </Routes>
+
       </BrowserRouter>
     </AuthProvider>
   );
