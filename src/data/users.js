@@ -4,7 +4,7 @@ export const users=[
 id:1,
 name:"Admin",
 email:"admin@happy.com",
-password:"123",
+password:"admin123",
 role:"admin"
 },
 
@@ -12,7 +12,7 @@ role:"admin"
 id:2,
 name:"Reception",
 email:"reception@happy.com",
-password:"123",
+password:"recep123",
 role:"reception"
 },
 
@@ -20,7 +20,7 @@ role:"reception"
 id:3,
 name:"Manager",
 email:"manager@happy.com",
-password:"123",
+password:"man123",
 role:"manager"
 },
 
@@ -28,7 +28,7 @@ role:"manager"
 id:4,
 name:"Customer",
 email:"customer@gmail.com",
-password:"123",
+password:"cust123",
 role:"customer"
 }
 
