@@ -6,7 +6,8 @@ import AdminLayout from "./components/AdminLayout";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
 import BookingDashboard from "./pages/Admin/BookingDashboard";
 import BookingConfirmation from "./pages/Admin/BookingConfirmation";
-import Checkout from "./pages/Admin/Checkout"; // 1. Import your new page
+import Checkout from "./pages/Admin/Checkout"; 
+import Rooms from "./pages/Admin/Rooms";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route index element={<AdminDashboard />} />
               <Route path="booking-dashboard" element={<BookingDashboard />} />
               <Route path="checkout" element={<Checkout />} /> {/* 2. Add the route here */}
+              <Route path="rooms" element={<Rooms />} />          
             </Route>
 
             <Route path="*" element={<Login />} />
