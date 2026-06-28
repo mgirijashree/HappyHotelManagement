@@ -93,6 +93,7 @@ const BookingModal = ({ onClose }) => {
         {step === 1 && (
           <div className="space-y-4">
             {/* Checkin */}
+            
             <div>
               <label className="block text-sm font-medium mb-1">Check-in Date</label>
               <input
@@ -187,7 +188,7 @@ const BookingModal = ({ onClose }) => {
                   <div key={room.id} className="p-4 border rounded-lg flex justify-between items-center bg-white shadow-sm">
                     <div>
                       <p className="font-bold text-gray-800">{room.name}</p>
-                      <p className="text-sm text-gray-600">Price: ${room.price} / night</p>
+                      <p className="text-sm text-gray-600">Price: Rs.{room.price} / night</p>
                     </div>
 
                     {/* Custom + and - Buttons */}
@@ -375,7 +376,7 @@ const BookingModal = ({ onClose }) => {
                   return (
                     <div key={id} className="flex justify-between text-sm">
                       <span>{room.name} x {qty}</span>
-                      <span>${room.price * qty}</span>
+                      <span>Rs.{room.price * qty}</span>
                     </div>
                   );
                 })}
@@ -384,7 +385,7 @@ const BookingModal = ({ onClose }) => {
                 {formData.extraBed && (
                   <div className="flex justify-between text-sm">
                     <span>Extra Bed</span>
-                    <span>$600</span>
+                    <span>Rs.600</span>
                   </div>
                 )}
 
@@ -404,11 +405,11 @@ const BookingModal = ({ onClose }) => {
                     <>
                       <div className="flex justify-between text-sm border-t pt-2">
                         <span>GST (18%)</span>
-                        <span>${gst.toFixed(2)}</span>
+                        <span>Rs.{gst.toFixed(2)}</span>
                       </div>
                       <div className="flex justify-between font-bold text-lg border-t pt-2">
                         <span>Grand Total</span>
-                        <span>${grandTotal.toFixed(2)}</span>
+                        <span>Rs.{grandTotal.toFixed(2)}</span>
                       </div>
                     </>
                   );
